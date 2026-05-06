@@ -1,0 +1,24 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore secrets
+.env
+
+# Ignore local testing file
+app.py
+
+# Ignore temp files
+*.log
+*.sqlite3
+
+# Streamlit cache
+.streamlit/
