@@ -22,3 +22,5 @@ app.py
 
 # Streamlit cache
 .streamlit/
+
+*.pdf
