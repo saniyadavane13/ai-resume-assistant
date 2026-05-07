@@ -117,7 +117,7 @@ def process_pdf(file):
 
     embeddings = FakeEmbeddings(size=384)
     vectorstore = InMemoryVectorStore.from_documents(docs, embeddings)
-    return vectorstore.as_retriever()
+    return vectorstore.as_retriever(search_kwargs={"k": 2})
 
 if uploaded_file:
     retriever = process_pdf(uploaded_file)
