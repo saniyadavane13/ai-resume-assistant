@@ -4,9 +4,8 @@ import tempfile
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_groq import ChatGroq
-
+from langchain_community.embeddings import FakeEmbeddings
 # 🔐 API key from environment
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -37,7 +36,7 @@ def process_pdf(file):
     loader = PyPDFLoader(path)
     docs = loader.load()
 
-    embeddings = HuggingFaceEmbeddings()
+    embeddings = FakeEmbeddings(size=384)
     db = Chroma.from_documents(docs, embeddings)
 
     return db.as_retriever()
